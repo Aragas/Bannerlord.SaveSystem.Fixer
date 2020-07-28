@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29926.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bannerlord.SaveSystem.Fixer", "Bannerlord.SaveSystem.Fixer\Bannerlord.SaveSystem.Fixer.csproj", "{64B355A0-BE70-4F3F-BB7A-224B0A42CD60}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bannerlord.SaveSystem.Fixer.Tests", "Bannerlord.SaveSystem.Fixer.Tests\Bannerlord.SaveSystem.Fixer.Tests.csproj", "{5FDF2855-970C-4A3A-B64B-21AEE9318A9B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Root", "Root", "{0B68A7C3-65EF-4991-A853-B05A8CD47DBC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{94A25748-F76A-421E-AEFB-DFC38012ACAE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{B5D7AA22-1D4F-4A5D-AB91-D9470C7E9188}"
+	ProjectSection(SolutionItems) = preProject
+		..\build\common.props = ..\build\common.props
+		..\build\common.targets = ..\build\common.targets
+		..\build\github-actions.props = ..\build\github-actions.props
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{64B355A0-BE70-4F3F-BB7A-224B0A42CD60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64B355A0-BE70-4F3F-BB7A-224B0A42CD60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64B355A0-BE70-4F3F-BB7A-224B0A42CD60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64B355A0-BE70-4F3F-BB7A-224B0A42CD60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FDF2855-970C-4A3A-B64B-21AEE9318A9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FDF2855-970C-4A3A-B64B-21AEE9318A9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FDF2855-970C-4A3A-B64B-21AEE9318A9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FDF2855-970C-4A3A-B64B-21AEE9318A9B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{64B355A0-BE70-4F3F-BB7A-224B0A42CD60} = {94A25748-F76A-421E-AEFB-DFC38012ACAE}
+		{5FDF2855-970C-4A3A-B64B-21AEE9318A9B} = {94A25748-F76A-421E-AEFB-DFC38012ACAE}
+		{94A25748-F76A-421E-AEFB-DFC38012ACAE} = {0B68A7C3-65EF-4991-A853-B05A8CD47DBC}
+		{B5D7AA22-1D4F-4A5D-AB91-D9470C7E9188} = {0B68A7C3-65EF-4991-A853-B05A8CD47DBC}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {bb1de9ec-d9a4-4a68-af3e-24b264cc674c}
+	EndGlobalSection
+EndGlobal
