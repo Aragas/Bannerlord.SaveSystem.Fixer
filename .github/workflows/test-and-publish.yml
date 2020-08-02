@@ -51,7 +51,9 @@ jobs:
         -password ${{secrets.STEAM_PASSWORD}} -filelist ./.github/resources/FileFilters.regexp -dir bannerlord
 
     - name: Run
-      run: dotnet run src/Bannerlord.SaveSystem.Fixer.Tests/Bannerlord.SaveSystem.Fixer.Tests.csproj --configuration Debug -p:GameFolder="$PWD/bannerlord"
+      run: >-
+        dotnet run src/Bannerlord.SaveSystem.Fixer.HL.Tests/Bannerlord.SaveSystem.Fixer.HL.Tests.csproj --configuration Debug -p:GameFolder="$PWD/bannerlord"
+        dotnet run src/Bannerlord.SaveSystem.Fixer.LL.Tests/Bannerlord.SaveSystem.Fixer.LL.Tests.csproj --configuration Debug -p:GameFolder="$PWD/bannerlord"
       env:
         DOTNET_NOLOGO: 1
         DOTNET_CLI_TELEMETRY_OPTOUT: 1
@@ -85,7 +87,9 @@ jobs:
         DOTNET_CLI_TELEMETRY_OPTOUT: 1
 
     - name: Build Bannerlord.SaveSystem.Fixer (Release)
-      run: dotnet build src/Bannerlord.SaveSystem.Fixer/Bannerlord.SaveSystem.Fixer.csproj --configuration Release -p:GameFolder="$PWD/bannerlord";
+      run: >-
+        dotnet build src/Bannerlord.SaveSystem.Fixer.HL/Bannerlord.SaveSystem.Fixer.HL.csproj --configuration Release -p:GameFolder="$PWD/bannerlord";
+        dotnet build src/Bannerlord.SaveSystem.Fixer.LL/Bannerlord.SaveSystem.Fixer.LL.csproj --configuration Release -p:GameFolder="$PWD/bannerlord";
       env:
         DOTNET_NOLOGO: 1
         DOTNET_CLI_TELEMETRY_OPTOUT: 1
@@ -163,7 +167,9 @@ jobs:
         DOTNET_CLI_TELEMETRY_OPTOUT: 1
 
     - name: Build Bannerlord.SaveSystem.Fixer (Release)
-      run: dotnet build src/Bannerlord.SaveSystem.Fixer/Bannerlord.SaveSystem.Fixer.csproj --configuration Release -p:GameFolder="$PWD/bannerlord";
+      run: >-
+        dotnet build src/Bannerlord.SaveSystem.Fixer.HL/Bannerlord.SaveSystem.Fixer.HL.csproj --configuration Release -p:GameFolder="$PWD/bannerlord";
+        dotnet build src/Bannerlord.SaveSystem.Fixer.LL/Bannerlord.SaveSystem.Fixer.LL.csproj --configuration Release -p:GameFolder="$PWD/bannerlord";
       env:
         DOTNET_NOLOGO: 1
         DOTNET_CLI_TELEMETRY_OPTOUT: 1

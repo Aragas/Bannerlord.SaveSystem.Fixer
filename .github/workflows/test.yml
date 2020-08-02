@@ -66,7 +66,9 @@ jobs:
         DOTNET_CLI_TELEMETRY_OPTOUT: 1
 
     - name: Test
-      run: dotnet run src/Bannerlord.SaveSystem.Fixer.Tests/Bannerlord.SaveSystem.Fixer.Tests.csproj --configuration Debug -p:GameFolder="$PWD/bannerlord"
+      run: >-
+        dotnet run src/Bannerlord.SaveSystem.Fixer.HL.Tests/Bannerlord.SaveSystem.Fixer.HL.Tests.csproj --configuration Debug -p:GameFolder="$PWD/bannerlord"
+        dotnet run src/Bannerlord.SaveSystem.Fixer.LL.Tests/Bannerlord.SaveSystem.Fixer.LL.Tests.csproj --configuration Debug -p:GameFolder="$PWD/bannerlord"
       env:
         DOTNET_NOLOGO: 1
         DOTNET_CLI_TELEMETRY_OPTOUT: 1
