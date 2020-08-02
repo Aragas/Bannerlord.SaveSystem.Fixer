@@ -15,11 +15,8 @@
     <PackageReference Include="System.Numerics.Vectors" Version="4.5.0" />
 
     <PackageReference Include="nunit" Version="3.12.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" Condition="$(TestAdapter) == 'true'" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
-  </ItemGroup>
-
-  <ItemGroup Condition="$(TestAdapter) == 'true'">
-    <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -45,7 +42,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Saves\Native\Nim12.sav">
+    <None Include="..\..\resources\Saves\**\*.sav" LinkBase="Saves">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

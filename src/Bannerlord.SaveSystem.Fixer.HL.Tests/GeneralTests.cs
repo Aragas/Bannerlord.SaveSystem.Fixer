@@ -28,7 +28,7 @@ namespace Bannerlord.SaveSystem.Tests
             ISaveDriver saveDriver;
             LoadResult loadResult;
 
-            foreach (var saveFile in Directory.GetFiles(Path.Combine("D:\\GitHub\\Bannerlord.SaveSystem.Fixer\\resources", "Saves"), "*.sav", SearchOption.AllDirectories))
+            foreach (var saveFile in Directory.GetFiles(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Saves"), "*.sav", SearchOption.AllDirectories))
             {
                 saveDriver = new FileDriver(saveFile);
 

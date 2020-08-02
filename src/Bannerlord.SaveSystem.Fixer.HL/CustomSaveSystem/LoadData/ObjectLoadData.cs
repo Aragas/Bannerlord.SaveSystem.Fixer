@@ -27,7 +27,7 @@ namespace Bannerlord.SaveSystem.LoadData
 		
 		public TSSD.TypeDefinition TypeDefinition { get; private set; }
 
-		public object GetDataBySaveId(int localSaveId)
+		public object? GetDataBySaveId(int localSaveId)
 		{
 			var memberLoadData = _memberValues.SingleOrDefault(value => value.MemberSaveId.LocalSaveId == localSaveId);
 			if (memberLoadData != null)
@@ -37,7 +37,7 @@ namespace Bannerlord.SaveSystem.LoadData
 			return null;
 		}
 
-		public object GetDataValueBySaveId(int localSaveId)
+		public object? GetDataValueBySaveId(int localSaveId)
 		{
 			var memberLoadData = _memberValues.SingleOrDefault(value => value.MemberSaveId.LocalSaveId == localSaveId);
 			if (memberLoadData == null)
