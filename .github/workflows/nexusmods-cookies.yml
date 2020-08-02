@@ -1,6 +1,8 @@
 name: Verify NexusMods Cookies
 
-#on:
+on:
+  branch:
+    - master
 #  schedule:
 #    - cron: "0 */12 * * *"
 
