@@ -1,6 +1,6 @@
 name: Test
 
-#on:
+on:
 #  push:
 #    branches:
 #      - dev
@@ -8,15 +8,15 @@ name: Test
 #      - '.github/workflows/test.yml'
 #      - 'src/**'
 #      - 'build/**'
-#  pull_request:
-#    branches:
-#      - dev
-#    # will be triggereg when undrafting or requesting review
-#    types: [review_requested, ready_for_review]
-#    paths:
-#      - '.github/workflows/test.yml'
-#      - 'src/**'
-#      - 'build/**'
+  pull_request:
+    branches:
+      - dev
+    # will be triggereg when undrafting or requesting review
+    types: [review_requested, ready_for_review]
+    paths:
+      - '.github/workflows/test.yml'
+      - 'src/**'
+      - 'build/**'
 
 jobs:
   test:
