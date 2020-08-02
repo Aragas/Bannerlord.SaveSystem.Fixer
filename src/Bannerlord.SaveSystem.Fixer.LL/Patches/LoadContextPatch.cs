@@ -14,11 +14,11 @@ namespace Bannerlord.SaveSystem.Patches
     public static class LoadContextPatch
     {
         public static HarmonyPatchEntry GetObjectWithId_NullTypeDefinitionToNull { get; } = new HarmonyPatchEntry(
-            AccessTools.Method(typeof(TSSL.LoadContext), "GetObjectWithId"),
+            AccessTools.DeclaredMethod(typeof(TSSL.LoadContext), "GetObjectWithId"),
             new HarmonyMethod(typeof(LoadContextPatch), nameof(GetObjectWithIdPostfix)),
             HarmonyPatchType.Postfix);
         public static HarmonyPatchEntry GetObjectWithId_NullTypeDefinitionToNull_Transpiler { get; } = new HarmonyPatchEntry(
-            AccessTools.Method(typeof(TSSL.LoadContext), "GetObjectWithId"),
+            AccessTools.DeclaredMethod(typeof(TSSL.LoadContext), "GetObjectWithId"),
             new HarmonyMethod(typeof(LoadContextPatch), nameof(GetObjectWithIdTranspiler)),
             HarmonyPatchType.Transpiler);
 

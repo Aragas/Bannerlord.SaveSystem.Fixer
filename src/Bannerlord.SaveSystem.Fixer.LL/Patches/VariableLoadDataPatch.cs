@@ -30,10 +30,10 @@ namespace Bannerlord.SaveSystem.Patches
             HarmonyPatchType.Transpiler);
 
 
-        private static PropertyInfo SavedMemberTypeProperty => AccessTools.DeclaredProperty(Type.GetType("TaleWorlds.SaveSystem.Load.VariableLoadData, TaleWorlds.SaveSystem"), "SavedMemberType");
+        private static MethodInfo SavedMemberTypeProperty => AccessTools.DeclaredPropertyGetter(Type.GetType("TaleWorlds.SaveSystem.Load.VariableLoadData, TaleWorlds.SaveSystem"), "SavedMemberType");
         private static bool GetDataToUsePrefix(object __instance, TSSD.TypeDefinitionBase ____typeDefinition, ref object? __result)
         {
-            var savedMemberType = (int) SavedMemberTypeProperty.GetValue(__instance);
+            var savedMemberType = (int) SavedMemberTypeProperty.Invoke(__instance, Array.Empty<object>());
             if (savedMemberType == 5 && (____typeDefinition == null || ____typeDefinition.Type == typeof(object)))
             {
                 __result = null;

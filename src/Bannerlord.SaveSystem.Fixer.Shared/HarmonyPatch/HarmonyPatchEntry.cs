@@ -18,7 +18,7 @@ namespace Bannerlord.SaveSystem.HarmonyPatch
             PatchType = patchType;
         }
 
-        public void Enable(HarmonyLib.Harmony harmony)
+        public void Enable(Harmony harmony)
         {
             switch (PatchType)
             {
@@ -40,7 +40,7 @@ namespace Bannerlord.SaveSystem.HarmonyPatch
             }
         }
 
-        public void Disable(HarmonyLib.Harmony harmony)
+        public void Disable(Harmony harmony)
         {
             switch (PatchType)
             {

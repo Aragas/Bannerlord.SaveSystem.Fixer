@@ -86,7 +86,7 @@ namespace Bannerlord.SaveSystem.Patches
                 //__result = new TypeDefinition(type, 0, new DefaultObjectResolver());
         }
 
-        public static MethodInfo IsContainerMethod { get; } = AccessTools.Method(
+        public static MethodInfo IsContainerMethod { get; } = AccessTools.DeclaredMethod(
             Type.GetType("TaleWorlds.SaveSystem.TypeExtensions, TaleWorlds.SaveSystem"),
             "IsContainer",
             new [] { typeof(Type) });

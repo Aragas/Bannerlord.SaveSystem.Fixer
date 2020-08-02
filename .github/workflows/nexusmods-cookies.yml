@@ -1,11 +1,8 @@
 name: Verify NexusMods Cookies
 
-on:
-  push:
-    branches:
-      - v3
-  schedule:
-    - cron: "0 */12 * * *"
+#on:
+#  schedule:
+#    - cron: "0 */12 * * *"
 
 jobs:
   verify-nexusmods-cookies:

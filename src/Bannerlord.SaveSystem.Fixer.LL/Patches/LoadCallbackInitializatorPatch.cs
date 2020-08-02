@@ -14,12 +14,12 @@ namespace Bannerlord.SaveSystem.Patches
     public static class LoadCallbackInitializatorPatch
     {
         public static HarmonyPatchEntry InitializeObjects_IgnoreInvalidCallbacks { get; } = new HarmonyPatchEntry(
-            AccessTools.Method(Type.GetType("TaleWorlds.SaveSystem.Load.LoadCallbackInitializator, TaleWorlds.SaveSystem"), "InitializeObjects"),
+            AccessTools.DeclaredMethod(Type.GetType("TaleWorlds.SaveSystem.Load.LoadCallbackInitializator, TaleWorlds.SaveSystem"), "InitializeObjects"),
             new HarmonyMethod(typeof(LoadCallbackInitializatorPatch), nameof(InitializeObjectsFinalizer)),
             HarmonyPatchType.Finalizer);
 
 
-        private static MethodInfo CreateLoadDataMethod { get; } = AccessTools.Method(typeof(TSSL.LoadContext), "CreateLoadData");
+        private static MethodInfo CreateLoadDataMethod { get; } = AccessTools.DeclaredMethod(typeof(TSSL.LoadContext), "CreateLoadData");
         private static void InitializeObjectsFinalizer(Exception __exception, TSSL.ObjectHeaderLoadData[] ____objectHeaderLoadDatas, int ____objectCount, TaleWorlds.SaveSystem.LoadData ____loadData)
         {
             if (__exception != null)

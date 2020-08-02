@@ -15,12 +15,12 @@ namespace Bannerlord.SaveSystem.Patches
     public static class ContainerLoadDataPatch
     {
         public static HarmonyPatchEntry FillObject_CheckForNull { get; } = new HarmonyPatchEntry(
-            AccessTools.Method(Type.GetType("TaleWorlds.SaveSystem.Load.ContainerLoadData, TaleWorlds.SaveSystem"), "FillObject"),
+            AccessTools.DeclaredMethod(Type.GetType("TaleWorlds.SaveSystem.Load.ContainerLoadData, TaleWorlds.SaveSystem"), "FillObject"),
             new HarmonyMethod(typeof(ContainerLoadDataPatch), nameof(FillObjectTranspiler)),
             HarmonyPatchType.Transpiler);
 
         public static HarmonyPatchEntry FillObject_Debug { get; } = new HarmonyPatchEntry(
-            AccessTools.Method(Type.GetType("TaleWorlds.SaveSystem.Load.ContainerLoadData, TaleWorlds.SaveSystem"), "FillObject"),
+            AccessTools.DeclaredMethod(Type.GetType("TaleWorlds.SaveSystem.Load.ContainerLoadData, TaleWorlds.SaveSystem"), "FillObject"),
             new HarmonyMethod(typeof(ContainerLoadDataPatch), nameof(FillObjectFinalizer)),
             HarmonyPatchType.Finalizer);
 
@@ -79,35 +79,35 @@ namespace Bannerlord.SaveSystem.Patches
         }
         private static void FillObjectFinalizer(Exception __exception, object __instance, int ____containerType, Array ____values)
         {
-            var prop = AccessTools.Property(__instance.GetType(), "Target");
+            var prop = AccessTools.DeclaredPropertyGetter(__instance.GetType(), "Target");
             var method = AccessTools.Method(Type.GetType("TaleWorlds.SaveSystem.Load.VariableLoadData, TaleWorlds.SaveSystem"), "GetDataToUse");
 
             switch (____containerType)
             {
                 case 1:
                 {
-                    var target = (System.Collections.IList) prop.GetValue(__instance);
+                    var target = (System.Collections.IList) prop.Invoke(__instance, Array.Empty<object>());
                     if (target == null)
                         ;
                 }
                     break;
                 case 2:
                 {
-                    var target = (System.Collections.IDictionary) prop.GetValue(__instance);
+                    var target = (System.Collections.IDictionary) prop.Invoke(__instance, Array.Empty<object>());
                     if (target == null)
                         ;
                 }
                     break;
                 case 3:
                 {
-                    var target = (Array) prop.GetValue(__instance);
+                    var target = (Array) prop.Invoke(__instance, Array.Empty<object>());
                     if (target == null)
                         ;
                 }
                     break;
                 case 4:
                 {
-                    var target = (System.Collections.ICollection) prop.GetValue(__instance);
+                    var target = (System.Collections.ICollection) prop.Invoke(__instance, Array.Empty<object>());
                     if (target == null)
                         ;
                 }
@@ -116,7 +116,7 @@ namespace Bannerlord.SaveSystem.Patches
 
             if (__exception != null)
             {
-                var target = (System.Collections.IList) prop.GetValue(__instance);
+                var target = (System.Collections.IList) prop.Invoke(__instance, Array.Empty<object>());
                 var list = new List<object>();
                 foreach (var value in ____values)
                 {

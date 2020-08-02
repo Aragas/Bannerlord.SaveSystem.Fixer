@@ -12,7 +12,7 @@ namespace Bannerlord.SaveSystem.Patches
     public static class CraftingPatch
     {
         public static HarmonyPatchEntry GenerateCraftedItem_ReplaceInvalidPieces { get; } = new HarmonyPatchEntry(
-            AccessTools.Method(typeof(Crafting).GetNestedType("CraftedItemGenerationHelper", AccessTools.all), "GenerateCraftedItem"),
+            AccessTools.DeclaredMethod(typeof(Crafting).GetNestedType("CraftedItemGenerationHelper", AccessTools.all), "GenerateCraftedItem"),
             new HarmonyMethod(typeof(CraftingPatch), nameof(GenerateCraftedItemPrefix)),
             HarmonyPatchType.Prefix);
 

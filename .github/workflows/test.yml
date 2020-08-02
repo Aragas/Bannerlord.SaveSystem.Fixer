@@ -67,8 +67,8 @@ jobs:
 
     - name: Test
       run: >-
-        dotnet run src/Bannerlord.SaveSystem.Fixer.HL.Tests/Bannerlord.SaveSystem.Fixer.HL.Tests.csproj --configuration Debug -p:GameFolder="$PWD/bannerlord"
-        dotnet run src/Bannerlord.SaveSystem.Fixer.LL.Tests/Bannerlord.SaveSystem.Fixer.LL.Tests.csproj --configuration Debug -p:GameFolder="$PWD/bannerlord"
+        dotnet test src/Bannerlord.SaveSystem.Fixer.HL.Tests/Bannerlord.SaveSystem.Fixer.HL.Tests.csproj --configuration Debug -p:GameFolder="$PWD/bannerlord -p:TestAdapter=true"
+        dotnet test src/Bannerlord.SaveSystem.Fixer.LL.Tests/Bannerlord.SaveSystem.Fixer.LL.Tests.csproj --configuration Debug -p:GameFolder="$PWD/bannerlord -p:TestAdapter=true"
       env:
         DOTNET_NOLOGO: 1
         DOTNET_CLI_TELEMETRY_OPTOUT: 1

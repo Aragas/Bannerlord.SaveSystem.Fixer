@@ -13,19 +13,19 @@ namespace Bannerlord.SaveSystem.Patches
     public static class ItemCategoryPatch
     {
         public static HarmonyPatchEntry OnSessionStart_FixItemCategories { get; } = new HarmonyPatchEntry(
-            AccessTools.Method(typeof(Campaign), "OnSessionStart"),
+            AccessTools.DeclaredMethod(typeof(Campaign), "OnSessionStart"),
             new HarmonyMethod(typeof(ItemCategoryPatch), nameof(OnSessionStartPrefix)),
             HarmonyPatchType.Prefix);
 
 
-        private static PropertyInfo ItemCategoryProperty { get; } = AccessTools.Property(typeof(ItemObject), nameof(ItemObject.ItemCategory));
+        private static MethodInfo ItemCategoryProperty { get; } = AccessTools.DeclaredPropertySetter(typeof(ItemObject), nameof(ItemObject.ItemCategory));
         /// <summary>
         /// Replace custom item categories with DefaultItemCategories.Unassigned
         /// </summary>
         private static void OnSessionStartPrefix()
         {
             foreach (var itemObject in ItemObject.All.Where(itemObject => itemObject.ItemCategory == null))
-                ItemCategoryProperty.SetValue(itemObject, DefaultItemCategories.Unassigned);
+                ItemCategoryProperty.Invoke(itemObject, new object[] { DefaultItemCategories.Unassigned });
         }
     }
 }
